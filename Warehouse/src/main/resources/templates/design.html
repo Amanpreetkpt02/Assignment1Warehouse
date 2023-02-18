@@ -20,13 +20,14 @@
         class="d-flex flex-column bd-highlight justify-content-center align-items-center w-75 ms-5"
       >
         <h1 class="mb-3">Design Warehouse form </h1>
-        <form>
+        <form mehod="post" th:object="${item}">
           <div class="mb-3">
             <label for="id" class="form-label"> id: </label>
             <input
               type="text"
               class="form-control"
               id="id"
+              th:field= "*{id}"
               aria-describedby="id"
             />
             <div id="fighterHelp" class="form-text">
@@ -36,14 +37,15 @@
           
           <div class="mb-3">
             <label for="yearofcreation" class="form-label">Year of Creation: </label>
-            <input type="number" class="form-control" id="yearofcreation" />
+            <input type="number" class="form-control"th:field= "*{yearofcreation}" id="yearofcreation" />
           </div>
           <div class="mb-3">
             <label for="Price" class="form-label">Price: </label>
-            <input type="number" class="form-control" id="Price" />
+            <input type="number" class="form-control"th:field= "*{price}" id="Price" />
           </div>
-          <select class="form-select mt-5 mb-5" aria-label=" brand selection">
+          <select th:field= "*{brand}"class="form-select mt-5 mb-5" aria-label=" brand selection">
             <option
+              
               th:each="item: ${items}"
               value="${item}"
               th:text="${item}"
