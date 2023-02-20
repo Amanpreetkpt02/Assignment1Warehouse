@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en"xmlns="http://www.thymeleaf.org" >
 <head>
@@ -19,16 +21,16 @@
         <div
         class="d-flex flex-column bd-highlight justify-content-center align-items-center w-75 ms-5"
       >
-        <h1 class="mb-3">Design Warehouse form </h1>
+        <h1 class="mb-3">Create your own Clothes </h1>
         <form mehod="post" th:object="${item}">
           <div class="mb-3">
-            <label for="id" class="form-label"> id: </label>
+            <label for="name" class="form-label"> Cloth name </label>
             <input
               type="text"
               class="form-control"
-              id="id"
-              th:field= "*{id}"
-              aria-describedby="id"
+              id="name"
+              th:field= "*{name}"
+              aria-describedby="name"
             />
             <div id="fighterHelp" class="form-text">
               Provide name
@@ -37,16 +39,24 @@
           
           <div class="mb-3">
             <label for="yearofcreation" class="form-label">Year of Creation: </label>
-            <input type="number" class="form-control"th:field= "*{yearofcreation}" id="yearofcreation" />
+            <input type="number" class="form-control" min="2021"th:field= "*{yearofcreation}" id="yearofcreation" />
+            <small
+            class="form-text text-danger"
+            th:text="'Year produced must be 2021 or later.'"
+          ></small>
           </div>
           <div class="mb-3">
             <label for="Price" class="form-label">Price: </label>
-            <input type="number" class="form-control"th:field= "*{price}" id="Price" />
+            <input type="number" class="form-control"min="1000"th:field= "*{price}" id="Price" />
+            <small class="form-text text-danger">
+              Price must be greater than 1000
+            </small>
+          </th>
           </div>
           <select th:field= "*{brand}"class="form-select mt-5 mb-5" aria-label=" brand selection">
             <option
               
-              th:each="item: ${items}"
+              th:each="item: ${T(com.cpan252.Warehouse.model.Item.FashionableBrand).values()}"
               value="${item}"
               th:text="${item}"
             />
