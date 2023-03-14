@@ -27,7 +27,7 @@
             <label for="name" class="form-label"> Cloth name </label>
             <input
               type="text"
-              class="form-control"
+              class="form-control rounded-pill"
               id="name"
               th:field= "*{name}"
               aria-describedby="name"
@@ -39,7 +39,7 @@
           
           <div class="mb-3">
             <label for="yearofcreation" class="form-label">Year of Creation: </label>
-            <input type="number" class="form-control" min="2021"th:field= "*{yearofcreation}" id="yearofcreation" />
+            <input type="number" class="form-control rounded-pill" min="2021"th:field= "*{yearofcreation}" id="yearofcreation" />
             <small
             class="form-text text-danger"
             th:text="'Year produced must be 2021 or later.'"
@@ -47,7 +47,7 @@
           </div>
           <div class="mb-3">
             <label for="Price" class="form-label">Price: </label>
-            <input type="number" class="form-control"min="1000"th:field= "*{price}" id="Price" />
+            <input type="number" class="form-control rounded-pill"min="1000"th:field= "*{price}" id="Price" />
             <small class="form-text text-danger">
               Price must be greater than 1000
             </small>
@@ -61,7 +61,7 @@
               th:text="${item}"
             />
           </select>
-          <button type="submit" class="btn btn-primary mt-5">
+          <button type="submit" class="btn btn-lg primary mt-5 rounded-pill">
             Create cloth
           </button>
         </form>
